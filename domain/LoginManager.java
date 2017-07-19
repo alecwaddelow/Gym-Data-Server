@@ -36,8 +36,8 @@ public class LoginManager
    */ 
   public boolean login() throws SQLServerException 
   { 
-	    server.ds.setUser(this.username); 
-	    server.ds.setPassword(this.password); 
+	   	CredentialStore cred = new CredentialStore(this.username, this.password);
+	   	server.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
 	    if(server.authenticate() == true) 
 	    { 
 	      return true; 

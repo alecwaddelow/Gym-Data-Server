@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 
+import domain.CredentialStore;
 import domain.TripDTO;
 
 /**
@@ -19,6 +20,8 @@ public class TripTableDataGateway implements TableDataGateway
 	{
 		ArrayList<TripDTO> entries = new ArrayList<TripDTO>();
 		DBConnection connection = new DBConnection();
+		connection.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
+		
 		String retrieveSql = "SELECT date, lengthOfTrip, lengthOfCardio, lengthOfLifting, lengthOfSauna, weight, comment FROM dbo.TripData;";
 		PreparedStatement stmt = connection.getConnection().prepareStatement(retrieveSql);
 		ResultSet rs = stmt.executeQuery();

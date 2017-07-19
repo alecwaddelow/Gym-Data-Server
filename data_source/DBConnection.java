@@ -32,6 +32,18 @@ public class DBConnection
 			e.printStackTrace(); 
 		}   
 	} 
+	
+	/**
+	 * Sets credentials to be able to create a connection
+	 * 
+	 * @param username
+	 * @param password
+	 */
+	public void createConnection(String username, String password)
+	{
+		ds.setUser(username);
+		ds.setPassword(password);
+	}
 
 	/** 
 	 * Attempts to make the connection to the database 
