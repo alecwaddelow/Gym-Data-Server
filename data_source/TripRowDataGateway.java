@@ -3,7 +3,9 @@ package data_source;
 import java.sql.Date; 
 import java.sql.PreparedStatement; 
 import java.sql.ResultSet; 
-import java.sql.SQLException; 
+import java.sql.SQLException;
+
+import domain.CredentialStore;
 import domain.TripDTO; 
 
 /** 
@@ -32,9 +34,10 @@ public class TripRowDataGateway implements RowDataGateway
 	 * @param lengthOfSauna 
 	 * @param weight 
 	 * @param comment 
+	 * @throws SQLException 
 	 */ 
 	public TripRowDataGateway(Date date, double lengthOfTrip, double lengthOfCardio, double lengthOfLifting, double lengthOfSauna, 
-			int weight, String comment)  
+			int weight, String comment) throws SQLException  
 	{ 
 		this.date = date; 
 		this.lengthOfTrip = lengthOfTrip; 
@@ -43,6 +46,7 @@ public class TripRowDataGateway implements RowDataGateway
 		this.lengthOfSauna = lengthOfSauna; 
 		this.weight = weight; 
 		this.comment = comment; 
+		addRow();
 	} 
 
 	/** 
@@ -55,6 +59,7 @@ public class TripRowDataGateway implements RowDataGateway
 	public void addRow() throws SQLException  
 	{ 
 		DBConnection connection = new DBConnection(); 
+		connection.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
 		String addSql = "INSERT INTO dbo.TripData (date, lengthOfTrip, lengthOfCardio, lengthOfLifting, lengthOfSauna, weight, comment) VALUES (?, ?, ?, ?, ?, ?, ?);"; 
 
 		PreparedStatement stmt = connection.getConnection().prepareStatement(addSql); 
@@ -80,6 +85,7 @@ public class TripRowDataGateway implements RowDataGateway
 	public void updateRow(Date date) throws SQLException  
 	{ 
 		DBConnection connection = new DBConnection(); 
+		connection.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
 		String updateSql = "UPDATE dbo.TripData SET lengthOfTrip = ?, lengthOfCardio = ?, lengthOfLifting = ?, lengthOfSauna = ?, weight = ?, comment = ? WHERE date = ?;"; 
 		PreparedStatement stmt = connection.getConnection().prepareStatement(updateSql); 
 		stmt.setDouble(1, this.lengthOfTrip); 
@@ -104,6 +110,7 @@ public class TripRowDataGateway implements RowDataGateway
 	public void deleteRow(Date date) throws SQLException 
 	{ 
 		DBConnection connection = new DBConnection(); 
+		connection.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
 		String deleteSql = "DELETE FROM dbo.TripData WHERE date = ?;"; 
 		PreparedStatement stmt = connection.getConnection().prepareStatement(deleteSql); 
 		stmt.setDate(1, date); 
@@ -124,6 +131,7 @@ public class TripRowDataGateway implements RowDataGateway
 	{ 
 		TripDTO dto = null; 
 		DBConnection connection = new DBConnection(); 
+		connection.createConnection(CredentialStore.getUsername(), CredentialStore.getPassword());
 		String retrieveSql = "SELECT date, lengthOfTrip, lengthOfCardio, lengthOfLifting, lengthOfSauna, weight, comment"; 
 		retrieveSql+= "FROM dbo.TripData WHERE date = ?;"; 
 		PreparedStatement stmt = connection.getConnection().prepareStatement(retrieveSql); 
