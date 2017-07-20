@@ -1,10 +1,9 @@
-/**
- * 
- */
 package domain;
 
 /**
- * @author alecw
+ * @author Alec Waddelow
+ * 
+ * Stores entered credentials for runtime of the program
  *
  */
 public class CredentialStore 
@@ -12,6 +11,12 @@ public class CredentialStore
 	protected static String username;
 	protected static String password;
 	
+	/**
+	 * Standard constructor
+	 * 
+	 * @param username
+	 * @param password
+	 */
 	public CredentialStore(String username, String password)
 	{
 		CredentialStore.username = username;

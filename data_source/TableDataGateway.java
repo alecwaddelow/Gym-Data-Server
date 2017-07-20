@@ -11,5 +11,12 @@ import domain.TripDTO;
  */ 
 public interface TableDataGateway  
 { 
+	/**
+	 * Gets all rows in the table
+	 * 
+	 * @return ArrayList<TripDTO> all rows
+	 * @throws SQLServerException
+	 * @throws SQLException
+	 */
 	public ArrayList<TripDTO> getAllRows() throws SQLServerException, SQLException; 
 } 

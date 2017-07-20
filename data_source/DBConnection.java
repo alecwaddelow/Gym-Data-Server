@@ -6,9 +6,10 @@ import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException; 
 
 /** 
- * @author drew rife and Alec Waddelow 
+ * @author Drew rife and Alec Waddelow 
  * 
  * Handles the establishing of a connection, passing the connection and closing it 
+ * 
  */ 
 public class DBConnection 
 { 
@@ -16,7 +17,7 @@ public class DBConnection
 	public SQLServerDataSource ds = new SQLServerDataSource(); 
 
 	/** 
-	 * establish a connection to the db upon creation of the object 
+	 * Sets basic connection information to the database upon object creation
 	 */ 
 	public DBConnection() 
 	{ 
@@ -58,7 +59,7 @@ public class DBConnection
 	} 
 
 	/** 
-	 * Makes connection to database with user supplied credentials 
+	 * Makes sure entered credentials are correct 
 	 *  
 	 * @return true or false 
 	 * @throws SQLServerException 

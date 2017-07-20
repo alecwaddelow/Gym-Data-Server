@@ -1,6 +1,3 @@
-/** 
- *  
- */ 
 package domain; 
  
 import java.util.Date; 
@@ -9,6 +6,7 @@ import java.util.Date;
  * @author Alec Waddelow 
  *  
  * Data Transfer Object for a Trip to the gym 
+ * 
  */ 
 public class TripDTO  
 { 

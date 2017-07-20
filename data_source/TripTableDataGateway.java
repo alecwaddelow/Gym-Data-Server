@@ -11,10 +11,16 @@ import domain.TripDTO;
 /**
  * @author Alec Waddelow & Marty Sease
  *
+ * A table data gateway to manage the TripData table
  */
 public class TripTableDataGateway implements TableDataGateway
 {
 
+	/**
+	 * Returns all rows from the table
+	 * @return ArrayList<TripDTO> all rows
+	 * @see data_source.TableDataGateway#getAllRows()
+	 */
 	@Override
 	public ArrayList<TripDTO> getAllRows() throws SQLServerException, SQLException 
 	{

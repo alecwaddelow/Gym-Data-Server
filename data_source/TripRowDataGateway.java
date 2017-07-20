@@ -46,6 +46,8 @@ public class TripRowDataGateway implements RowDataGateway
 	} 
 
 	/** 
+	 * Adds a new row to the table
+	 * 
 	 * @throws SQLException  
 	 * @see data_source.RowDataGateway#addRow(Date, double, double, double, double, int, java.lang.String) 
 	 */ 
@@ -69,6 +71,8 @@ public class TripRowDataGateway implements RowDataGateway
 	} 
 
 	/** 
+	 * Updates a row based on the date entered
+	 * 
 	 * @throws SQLException  
 	 * @see data_source.RowDataGateway#updateRow(java.util.Date, double, double, double, double, int, java.lang.String) 
 	 */ 
@@ -91,6 +95,8 @@ public class TripRowDataGateway implements RowDataGateway
 	} 
 
 	/** 
+	 * Deletes a row based on the date entered
+	 * 
 	 * @throws SQLException  
 	 * @see data_source.RowDataGateway#deleteRow(java.util.Date) 
 	 */ 
@@ -107,8 +113,11 @@ public class TripRowDataGateway implements RowDataGateway
 	} 
 
 	/** 
+	 * Retrieves a row based on the date entered
+	 * 
 	 * @throws SQLException  
 	 * @see data_source.RowDataGateway#retrieveRow(java.util.Date) 
+	 * @return TripDTO of the row 
 	 */ 
 	@Override 
 	public TripDTO retrieveRow(Date date) throws SQLException  
