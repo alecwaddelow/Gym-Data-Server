@@ -14,8 +14,8 @@ public class CredentialStore
 	
 	public CredentialStore(String username, String password)
 	{
-		this.username = username;
-		this.password = password;
+		CredentialStore.username = username;
+		CredentialStore.password = password;
 	}
 
 	/**
@@ -31,6 +31,4 @@ public class CredentialStore
 	public static String getPassword() {
 		return password;
 	}
-	
-	
 }
