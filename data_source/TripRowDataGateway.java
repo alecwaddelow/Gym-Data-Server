@@ -49,6 +49,12 @@ public class TripRowDataGateway implements RowDataGateway
 		addRow();
 	} 
 
+	/**
+	 * Default constructor
+	 */
+	public TripRowDataGateway() 
+	{}
+
 	/** 
 	 * Adds a new row to the table
 	 * 

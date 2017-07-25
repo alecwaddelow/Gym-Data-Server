@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import data_source.TripRowDataGateway;
 import data_source.TripTableDataGateway;
 
@@ -49,5 +48,17 @@ public class TripManager
 			int weight, String comment) throws SQLException
 	{
 		rowGateway = new TripRowDataGateway(date, lengthOfTrip, lengthOfCardio, lengthOfLifting, lengthOfSauna, weight, comment);
+	}
+	
+	/**
+	 * Deletes a trip based on the date
+	 * 
+	 * @param date
+	 * @throws SQLException
+	 */
+	public void deleteTrip(Date date) throws SQLException
+	{
+		rowGateway = new TripRowDataGateway();
+		rowGateway.deleteRow(date);
 	}
 } 
