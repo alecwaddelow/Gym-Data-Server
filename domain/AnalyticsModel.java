@@ -45,6 +45,7 @@ public class AnalyticsModel
 	
 	/**
 	 * Finds maximum weight 
+	 * 
 	 * @return maxWeight
 	 */
 	public int findMaxWeight()
@@ -55,6 +56,7 @@ public class AnalyticsModel
 	
 	/**
 	 * Finds minimum weight
+	 * 
 	 * @return minWeight
 	 */
 	public int findMinWeight()
@@ -65,6 +67,7 @@ public class AnalyticsModel
 	
 	/**
 	 * Finds average weight over the data set
+	 * 
 	 * @return average
 	 */
 	public double findAverageWeight()
@@ -78,4 +81,69 @@ public class AnalyticsModel
 		average = sum / listOfWeights.size();
 		return average;
 	}
+	
+	/**
+	 * Finds average length of trip to gym
+	 * 
+	 * @return average
+	 */
+	public double findAverageLengthOfTrip()
+	{
+		double sum = 0;
+		double average = 0;
+		
+		for(Double value : listOfLengthOfTrips)
+		{
+			sum += value;
+		}
+		average = sum / listOfLengthOfTrips.size();
+		return average;
+	}
+	
+	/**
+	 * Finds shortest trip to the gym
+	 * 
+	 * @return min
+	 */
+	public double findMinLengthOfTrip()
+	{
+		double min = Collections.min(listOfLengthOfTrips);
+		return min;
+	}
+	
+	/**
+	 * Finds the longest trip to the gym
+	 * 
+	 * @return max
+	 */
+	public double findMaxLengthOfTrip()
+	{
+		double max = Collections.max(listOfLengthOfTrips);
+		return max;
+	}
+	
+	/**
+	 * Finds average length of cardio workout
+	 * 
+	 * @return average
+	 */
+	public double findAverageLengthOfCardio()
+	{
+		double sum = 0;
+		double average = 0;
+		for(Double value : listOfLengthOfCardio)
+		{
+			sum += value;
+		}
+		average = sum / listOfLengthOfCardio.size();
+		return average;
+	}
+	
+	
+	public double findMaxLengthInSauna()
+	{
+		double max = Collections.max(listOfLengthOfSauna);
+		return max;
+	}
+	
 }
