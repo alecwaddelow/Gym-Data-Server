@@ -13,14 +13,14 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
  */
 public class AnalyticsModel 
 {
-	protected TripManager manager;
+	protected TripManager manager = new TripManager();
 	protected ArrayList<TripDTO> entries;
-	protected ArrayList<Date> listOfDates;
-	protected ArrayList<Double> listOfLengthOfTrips;
-	protected ArrayList<Double> listOfLengthOfCardio;
-	protected ArrayList<Double> listOfLengthOfLifting;
-	protected ArrayList<Double> listOfLengthOfSauna;
-	protected ArrayList<Integer> listOfWeights;
+	protected ArrayList<Date> listOfDates = new ArrayList<Date>();
+	protected ArrayList<Double> listOfLengthOfTrips= new ArrayList<Double>();
+	protected ArrayList<Double> listOfLengthOfCardio= new ArrayList<Double>();
+	protected ArrayList<Double> listOfLengthOfLifting= new ArrayList<Double>();
+	protected ArrayList<Double> listOfLengthOfSauna= new ArrayList<Double>();
+	protected ArrayList<Integer> listOfWeights= new ArrayList<Integer>();
 	
 	/**
 	 * Constructor that pulls in data from DB
@@ -29,9 +29,16 @@ public class AnalyticsModel
 	 * @throws SQLServerException
 	 * @throws SQLException
 	 */
-	public AnalyticsModel() throws SQLServerException, SQLException
+	public AnalyticsModel()
 	{
-		this.entries = manager.getAllEntries();
+		try {
+			this.entries = manager.getAllEntries();
+		} catch (SQLServerException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		for(TripDTO entry : entries)
 		{
 			listOfDates.add(entry.getDate());
