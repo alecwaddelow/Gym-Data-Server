@@ -8,7 +8,7 @@ import java.util.Date;
  * Data Transfer Object for a Trip to the gym 
  * 
  */ 
-public class TripDTO  
+public class TripDTO implements Comparable<TripDTO>
 { 
    
   protected Date date; 
@@ -97,6 +97,11 @@ public class TripDTO
 	 
 	  public void setComment(String comment) { 
 	    this.comment = comment; 
-	  } 
+	  }
+
+	@Override
+	public int compareTo(TripDTO arg0) {
+		return getDate().compareTo(arg0.getDate());
+	} 
 	   
 } 
